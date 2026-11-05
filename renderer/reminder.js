@@ -1,14 +1,12 @@
-// Activate reminder-specific background image
 document.body.classList.add('reminder-page');
 
 const reminderInput = document.getElementById('reminderInput');
 const saveBtn = document.getElementById('saveBtn');
 const reminderList = document.getElementById('reminderList');
 
-// Load existing reminders from localStorage when page opens
 document.addEventListener('DOMContentLoaded', displayReminders);
 
-// CREATE: Add a brand new reminder from the top form
+// CREATE
 saveBtn.addEventListener('click', () => {
     const reminderText = reminderInput.value.trim();
 
@@ -19,7 +17,6 @@ saveBtn.addEventListener('click', () => {
 
     let reminders = JSON.parse(localStorage.getItem('islamicReminders')) || [];
 
-    // Add a unique ID based on the current timestamp
     reminders.push({ 
         id: Date.now().toString(), 
         text: reminderText, 
@@ -32,12 +29,12 @@ saveBtn.addEventListener('click', () => {
     displayReminders();
 });
 
-// READ & DISPLAY: Render reminders with clean side-by-side buttons
+// READ
 function displayReminders() {
     let reminders = JSON.parse(localStorage.getItem('islamicReminders')) || [];
 
     if (reminders.length === 0) {
-        reminderList.innerHTML = '<li style="padding: 10px; color: #9ca3af; background: transparent; border: none;">No reminders saved yet.</li>';
+        reminderList.innerHTML = '<li style="padding: 10px; color: #9ca3af; background: transparent; border: none; justify-content: center;">No reminders saved yet.</li>';
         return;
     }
 
@@ -45,36 +42,26 @@ function displayReminders() {
     
     reminders.forEach((reminder) => {
         const li = document.createElement('li');
-        li.style.margin = '10px 0';
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.alignItems = 'center';
-        li.style.padding = '14px 18px';
-        li.style.background = 'rgba(255, 255, 255, 0.05)';
-        li.style.border = '1px solid rgba(212, 175, 55, 0.15)';
-        li.style.borderRadius = '10px';
 
-        // Pass the reminder ID to the buttons instead of the array index
         li.innerHTML = `
             <div style="flex: 1; margin-right: 15px; word-break: break-word;">
-                <span style="font-size: 1.05em; color: #fef9c3;">${reminder.text}</span>
-                <br><small style="color: #9ca3af; margin-left: 22px;">Added: ${reminder.date}</small>
+                <span style="font-size: 1.1em; color: #fef9c3;">${reminder.text}</span>
+                <br><small style="color: #9ca3af; margin-top: 5px; display: inline-block;">Added: ${reminder.date}</small>
             </div>
             <div style="display: flex; gap: 8px; flex-shrink: 0;">
-                <button onclick="inlineEdit('${reminder.id}')" style="background: #f59e0b; color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95em;">Edit</button>
-                <button onclick="deleteReminder('${reminder.id}')" style="background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95em;">Delete</button>
+                <button onclick="inlineEdit('${reminder.id}')" style="background: #f59e0b; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95em; transition: 0.2s;">Edit</button>
+                <button onclick="deleteReminder('${reminder.id}')" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95em; transition: 0.2s;">Delete</button>
             </div>
         `;
         reminderList.appendChild(li);
     });
 }
 
-// UPDATE (INLINE ROW EDIT): Transform the list row into an input field when Edit is clicked
+// UPDATE
 window.inlineEdit = function(id) {
     let reminders = JSON.parse(localStorage.getItem('islamicReminders')) || [];
     const reminder = reminders.find(r => r.id === id);
     
-    // Find the specific LI element that holds this ID
     const buttons = document.querySelectorAll(`button[onclick="inlineEdit('${id}')"]`);
     if(buttons.length === 0) return;
     const targetLi = buttons[0].closest('li');
@@ -91,7 +78,6 @@ window.inlineEdit = function(id) {
     document.getElementById(`editInput-${id}`).focus();
 };
 
-// CUSTOM IN-APP MODAL CONFIRMATION HELPER
 function showCustomModal(message, onConfirm) {
     const modal = document.getElementById('customModal');
     const messageEl = document.getElementById('modalMessage');
@@ -117,7 +103,6 @@ function showCustomModal(message, onConfirm) {
     });
 }
 
-// SAVE INLINE EDIT WITH CUSTOM EMERALD MODAL
 window.saveInlineEdit = function(id) {
     const inputField = document.getElementById(`editInput-${id}`);
     const newText = inputField.value.trim();
@@ -131,7 +116,6 @@ window.saveInlineEdit = function(id) {
         if (!isConfirmed) return;
 
         let reminders = JSON.parse(localStorage.getItem('islamicReminders')) || [];
-        // Find the exact index of the reminder with this ID
         let index = reminders.findIndex(r => r.id === id);
         
         if (index !== -1) {
@@ -144,13 +128,12 @@ window.saveInlineEdit = function(id) {
     });
 };
 
-// DELETE WITH CUSTOM EMERALD MODAL
+// DELETE
 window.deleteReminder = function(id) {
     showCustomModal('Are you sure you want to delete this reminder?', (isConfirmed) => {
         if (!isConfirmed) return;
 
         let reminders = JSON.parse(localStorage.getItem('islamicReminders')) || [];
-        // Filter out the reminder that matches this ID
         reminders = reminders.filter(r => r.id !== id);
         
         localStorage.setItem('islamicReminders', JSON.stringify(reminders));

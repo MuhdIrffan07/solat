@@ -7,34 +7,59 @@
 </head>
 <body>
     <div class="container">
-        <!-- BANNER WITH TITLE INSIDE -->
+        <!-- BANNER with Title inside -->
         <div class="top-banner">
-            <h1>Solat Time & Reminder Application</h1>
+            <h1>My Prayer Times</h1>
         </div>
-
+        
         <nav>
             <button class="nav-btn active-tab" onclick="window.location.href='index.html'">Prayer Times</button>
             <button class="nav-btn" onclick="window.location.href='reminder.html'">Activity Reminders</button>
         </nav>
 
-        <div class="card">
-            <h2>Pick Your Location</h2>
-            <div class="search-container">
-                <input type="text" id="cityInput" placeholder="Type your location (e.g., Kuala Lumpur, Shah Alam)">
-                <button id="fetchBtn">Search</button>
-            </div>
-        </div>
+        <div class="dashboard-grid">
+            <!-- LEFT COLUMN -->
+            <div class="left-col">
+                <div class="card">
+                    <h2>Pick Your Location</h2>
+                    <div class="search-container">
+                        <input type="text" id="cityInput" placeholder="e.g., Kuala Lumpur, Shah Alam">
+                        <button id="fetchBtn">Search</button>
+                    </div>
+                </div>
 
-        <div class="card">
-            <h2>Today's Schedule</h2>
-            <div id="prayerResults">
-                <p style="color: #9ca3af; margin: 0;">Please enter a location above to view accurate prayer times.</p>
+                <div class="card">
+                    <h2>Today's Schedule</h2>
+                    <div id="prayerResults">
+                        <p style="color: #9ca3af; margin: 0; font-style: italic;">Please enter a location above to view accurate prayer times.</p>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="card live-countdown-card">
-            <h3 style="margin-top: 0; color: #111827; font-size: 1.1em;">Live Countdown</h3>
-            <p id="countdownDisplay" style="margin: 0; font-weight: bold; color: #047857;">Waiting for location search...</p>
+            <!-- RIGHT COLUMN -->
+            <div class="right-col">
+                <div class="card live-countdown-card">
+                    <h3 style="margin-top: 0; color: #111827; font-size: 1.2em; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                        <span class="pulse-dot"></span> Live Countdown
+                    </h3>
+                    <p id="countdownDisplay" style="margin: 0; font-weight: bold; color: #047857;">Waiting for location search...</p>
+                </div>
+
+                <div class="card suggestion-card">
+                    <h2>💡 Activity Suggestion</h2>
+                    <div id="suggestionBox">
+                        <p style="color: #9ca3af; margin: 0; font-style: italic;">Search for a location to get a suggestion based on the time of day.</p>
+                    </div>
+                </div>
+
+                <div class="card quote-card">
+                    <h2>📖 Daily Reminder</h2>
+                    <p style="color: #fef9c3; font-style: italic; line-height: 1.5; font-size: 1.1em;">
+                        "Whoever treads a path seeking knowledge, Allah will make easy for him the path to Paradise."
+                    </p>
+                    <p style="color: #9ca3af; font-size: 0.9em; text-align: right; margin-top: 15px;">— Sahih Muslim</p>
+                </div>
+            </div>
         </div>
     </div>
 

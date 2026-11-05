@@ -1,142 +1,158 @@
 /* =========================================
-   Authentic Islamic Emerald & Gold Theme (Desktop Mode)
+   Solat Time - Premium Desktop Theme
    ========================================= */
 body {
     font-family: 'Arial', sans-serif;
     color: #ffffff;
     margin: 0;
-    padding: 20px;
-    /* CHANGED: Start from top instead of centering to prevent cut-off */
+    padding: 30px;
+    box-sizing: border-box; 
     display: flex; 
     justify-content: center;
     align-items: flex-start; 
     min-height: 100vh;
     overflow-x: hidden;
     
-    background-color: #062319;
+    background-color: #041912; 
+    /* BRIGHTER BACKGROUND GRADIENT */
     background-image: 
-        url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="%23d4af37" fill-opacity="0.05" fill-rule="evenodd"><path d="M30 0l7.5 22.5L60 30l-22.5 7.5L30 60l-7.5-22.5L0 30l22.5-7.5z"/></g></svg>'),
-        linear-gradient(135deg, #041912 0%, #0a3d2e 50%, #0d4d3a 100%);
-    background-size: 60px 60px, cover;
-    background-repeat: repeat, no-repeat;
+        linear-gradient(rgba(4, 25, 18, 0.65), rgba(4, 25, 18, 0.75)), 
+        url('../data/background.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-/* =========================================
-   Desktop Container
-   ========================================= */
 .container {
-    width: 880px;
-    max-width: 95%;
-    background: rgba(10, 35, 26, 0.78);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 25px 40px;
-    border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(212, 175, 55, 0.3);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 95%; 
+    max-width: 1300px; 
+    background: rgba(6, 35, 25, 0.65); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 30px 40px;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     box-sizing: border-box;
-    margin-top: 10px;
 }
 
 /* =========================================
-   Top Banner Styling
+   DESKTOP GRID LAYOUT
+   ========================================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+.left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* =========================================
+   Top Banner
    ========================================= */
 .top-banner {
     width: 100%;
-    height: 100px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    height: 160px; 
+    border-radius: 16px;
+    margin-bottom: 25px;
+    background-image: url('../data/banner.jpeg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    
+    /* THIS CENTERS THE TEXT INSIDE THE BANNER */
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-image: 
-        url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%23d4af37" fill-opacity="0.15" fill-rule="evenodd"><path d="M20 0l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/></g></svg>'),
-        linear-gradient(135deg, #0a3d2e 0%, #047857 60%, #d4af37 100%);
-    background-size: 40px 40px, cover;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    box-shadow: inset 0 -10px 20px rgba(4, 25, 18, 0.6), 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Headings */
 h1 {
     text-align: center;
-    color: #fef08a;
-    margin: 0;
-    font-size: 2.2em;
-    font-weight: bold;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #fef08a 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    margin: 0; /* Removed margins so it centers perfectly */
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    /* Stronger drop shadow so the text pops against the light banner image */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8)); 
 }
 
 h2 {
     color: #fef9c3;
-    font-size: 1.35em;
+    font-size: 1.3em;
     margin-top: 0;
     margin-bottom: 15px;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ============================
-   Navigation Styling
+   Navigation
    ============================ */
 nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .nav-btn {
-    background: #9ca3af;
-    color: #ffffff;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #9ca3af;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 40px;
+    border-radius: 50px;
     font-weight: bold;
-    font-size: 1.05em;
+    font-size: 1.1em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-    background: #6b7280;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 .nav-btn.active-tab {
     background: #3b82f6;
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    border-color: #60a5fa;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
 /* Content Cards */
 .card {
-    background: rgba(4, 25, 18, 0.55);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 14px;
-    padding: 18px 20px; /* Slightly smaller padding to save space */
-    margin-bottom: 15px; /* Reduced margin */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* =========================================
-   Modern Pill Search Bar Container
+   Search Bar
    ========================================= */
 .search-container {
     display: flex;
     align-items: center;
     background: #ffffff;
     border-radius: 50px;
-    padding: 8px 8px 8px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border: 2px solid #d4af37;
-    transition: none;
-}
-
-.search-container:focus-within {
-    background: #ffffff;
-    border-color: #d4af37;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 6px 6px 6px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .search-icon {
@@ -149,59 +165,39 @@ nav {
     flex: 1;
     border: none;
     background: transparent !important;
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 1.1em;
     outline: none;
     color: #041912 !important;
-    box-shadow: none !important;
-}
-
-.search-container input[type="text"]:focus {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-.search-container input[type="text"]::placeholder {
-    color: #6b7280;
 }
 
 .search-container button {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%);
     color: #ffffff;
-    border: 1px solid #a7f3d0;
+    border: none;
     border-radius: 50px;
-    padding: 12px 28px;
+    padding: 12px 30px;
     font-size: 1.05em;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
-.search-container button:hover {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
-}
-
-/* Standard Inputs (Reminders) */
+/* Standard Inputs */
 input[type="text"] {
-    padding: 12px 16px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    font-size: 1.05em;
+    font-size: 1.1em;
     outline: none;
-    background: rgba(4, 25, 18, 0.6);
+    background: rgba(0, 0, 0, 0.2);
     color: #ffffff;
 }
 
 input[type="text"]:focus {
-    background: rgba(4, 25, 18, 0.9);
     border-color: #d4af37;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
-/* Row Styling for Lists and Schedules */
+/* Lists */
 ul {
     list-style-type: none;
     padding: 0;
@@ -209,40 +205,57 @@ ul {
 }
 
 ul li {
-    padding: 10px 18px; /* Reduced padding from 14px to fit more rows */
-    margin: 8px 0; /* Reduced margin */
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 14px 18px; 
+    margin: 8px 0; 
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fef9c3;
-    font-size: 1.05em;
+    color: #e5e7eb;
+    font-size: 1.1em;
+}
+
+.next-prayer-highlight {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%) !important; 
+    border: 1px solid rgba(212, 175, 55, 0.5) !important; 
+    transform: scale(1.02); 
+}
+
+.next-prayer-highlight span {
+    color: #fef08a; 
+    font-weight: bold;
 }
 
 /* =========================================
-   Live Countdown Box (Pale Mint Green)
+   Widgets
    ========================================= */
 .live-countdown-card {
     text-align: center;
-    background: #ecfdf5 !important;
-    border: 1px solid #a7f3d0;
-    border-left: 6px solid #10b981 !important;
-    font-size: 1.1em;
-    border-radius: 14px; 
-    padding: 16px; /* Reduced padding */
-    margin-bottom: 0;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    border: 2px solid #a7f3d0;
+    border-left: 8px solid #10b981 !important;
+    padding: 25px; 
 }
 
-/* Suggestion Box */
-.suggestion-box {
-    background: rgba(16, 185, 129, 0.12) !important;
-    border-left: 4px solid #10b981 !important;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 10px;
-    color: #e6fffa;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    font-size: 1.05em;
+.quote-card {
+    background: linear-gradient(135deg, rgba(6, 35, 25, 0.9) 0%, rgba(10, 61, 46, 0.9) 100%);
+    border-left: 4px solid #d4af37;
+}
+
+.pulse-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #10b981; 
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
