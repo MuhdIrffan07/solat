@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solat Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- BANNER WITH TITLE INSIDE -->
+        <div class="top-banner">
+            <h1>Islamic Activity Reminders</h1>
+        </div>
+
+        <nav>
+            <button class="nav-btn" onclick="window.location.href='index.html'">Prayer Times</button>
+            <button class="nav-btn active-tab" onclick="window.location.href='reminder.html'">Activity Reminders</button>
+        </nav>
+
+        <div class="card">
+            <h2>Add New Reminder</h2>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="reminderInput" placeholder="e.g., Read Surah Al-Kahf on Friday" style="flex: 1;">
+                <button id="saveBtn" style="background: #10b981; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;">Save Reminder</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Saved Reminders</h2>
+            <ul id="reminderList">
+                <!-- Reminders will load dynamically here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Custom In-App Confirmation Modal -->
+    <div id="customModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 25, 18, 0.75); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: #0a3d2e; border: 2px solid #d4af37; border-radius: 16px; padding: 30px; width: 420px; max-width: 90%; box-shadow: 0 25px 50px rgba(0,0,0,0.8); text-align: center;">
+            <div style="font-size: 2.5em; margin-bottom: 10px;"></div>
+            <h3 id="modalTitle" style="color: #fef08a; margin-top: 0; font-size: 1.4em;">Please Confirm</h3>
+            <p id="modalMessage" style="color: #fef9c3; font-size: 1.1em; margin-bottom: 25px; line-height: 1.4;">Are you sure you want to proceed?</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button id="modalConfirmBtn" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border: 1px solid #a7f3d0; padding: 10px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1em;">Confirm</button>
+                <button id="modalCancelBtn" style="background: #6b7280; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1em;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="reminder.js"></script>
+</body>
+</html>

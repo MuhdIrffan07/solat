@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solat Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- BANNER WITH TITLE INSIDE -->
+        <div class="top-banner">
+            <h1>Solat Time & Reminder Application</h1>
+        </div>
+
+        <nav>
+            <button class="nav-btn active-tab" onclick="window.location.href='index.html'">Prayer Times</button>
+            <button class="nav-btn" onclick="window.location.href='reminder.html'">Activity Reminders</button>
+        </nav>
+
+        <div class="card">
+            <h2>Pick Your Location</h2>
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Type your location (e.g., Kuala Lumpur, Shah Alam)">
+                <button id="fetchBtn">Search</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Today's Schedule</h2>
+            <div id="prayerResults">
+                <p style="color: #9ca3af; margin: 0;">Please enter a location above to view accurate prayer times.</p>
+            </div>
+        </div>
+
+        <div class="card live-countdown-card">
+            <h3 style="margin-top: 0; color: #111827; font-size: 1.1em;">Live Countdown</h3>
+            <p id="countdownDisplay" style="margin: 0; font-weight: bold; color: #047857;">Waiting for location search...</p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
